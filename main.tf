@@ -1,9 +1,19 @@
-resource "aci_rest" "fvTenant" {
-  dn         = "uni/tn-${var.name}"
-  class_name = "fvTenant"
+resource "aci_rest" "rtctrlAttrP" {
+  dn         = "uni/tn-${var.tenant}/attr-${var.name}"
+  class_name = "rtctrlAttrP"
   content = {
-    name      = var.name
-    nameAlias = var.alias
-    descr     = var.description
+    name  = var.name
+    descr = var.description
+  }
+}
+
+resource "aci_rest" "rtctrlSetComm" {
+  count      = var.community != "" ? 1 : 0
+  dn         = "${aci_rest.rtctrlAttrP.id}/scomm"
+  class_name = "rtctrlSetComm"
+  content = {
+    "community"   = var.community
+    "setCriteria" = var.community_mode
+    "type"        = "community"
   }
 }

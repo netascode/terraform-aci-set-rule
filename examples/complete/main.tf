@@ -1,8 +1,10 @@
-module "aci_scaffolding" {
-  source  = "netascode/scaffolding/aci"
+module "aci_set_rule" {
+  source  = "netascode/set-rule/aci"
   version = ">= 0.0.1"
 
-  name        = "ABC"
-  alias       = "ABC-ALIAS"
-  description = "My Description"
+  tenant         = "ABC"
+  name           = "SR1"
+  description    = "My Description"
+  community      = "no-export"
+  community_mode = "replace"
 }
