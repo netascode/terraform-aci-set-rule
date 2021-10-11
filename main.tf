@@ -9,7 +9,7 @@ resource "aci_rest" "rtctrlAttrP" {
 
 resource "aci_rest" "rtctrlSetComm" {
   count      = var.community != "" ? 1 : 0
-  dn         = "${aci_rest.rtctrlAttrP.id}/scomm"
+  dn         = "${aci_rest.rtctrlAttrP.dn}/scomm"
   class_name = "rtctrlSetComm"
   content = {
     "community"   = var.community
