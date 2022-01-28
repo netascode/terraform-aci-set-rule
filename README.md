@@ -13,7 +13,7 @@ Location in GUI:
 ```hcl
 module "aci_set_rule" {
   source  = "netascode/set-rule/aci"
-  version = ">= 0.0.1"
+  version = ">= 0.1.0"
 
   tenant         = "ABC"
   name           = "SR1"
@@ -21,7 +21,6 @@ module "aci_set_rule" {
   community      = "no-export"
   community_mode = "replace"
 }
-
 ```
 
 ## Requirements
@@ -29,13 +28,13 @@ module "aci_set_rule" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_aci"></a> [aci](#requirement\_aci) | >= 0.2.0 |
+| <a name="requirement_aci"></a> [aci](#requirement\_aci) | >= 2.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aci"></a> [aci](#provider\_aci) | >= 0.2.0 |
+| <a name="provider_aci"></a> [aci](#provider\_aci) | >= 2.0.0 |
 
 ## Inputs
 
@@ -58,6 +57,6 @@ module "aci_set_rule" {
 
 | Name | Type |
 |------|------|
-| [aci_rest.rtctrlAttrP](https://registry.terraform.io/providers/netascode/aci/latest/docs/resources/rest) | resource |
-| [aci_rest.rtctrlSetComm](https://registry.terraform.io/providers/netascode/aci/latest/docs/resources/rest) | resource |
+| [aci_rest_managed.rtctrlAttrP](https://registry.terraform.io/providers/CiscoDevNet/aci/latest/docs/resources/rest_managed) | resource |
+| [aci_rest_managed.rtctrlSetComm](https://registry.terraform.io/providers/CiscoDevNet/aci/latest/docs/resources/rest_managed) | resource |
 <!-- END_TF_DOCS -->

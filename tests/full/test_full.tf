@@ -5,13 +5,13 @@ terraform {
     }
 
     aci = {
-      source  = "netascode/aci"
-      version = ">=0.2.0"
+      source  = "CiscoDevNet/aci"
+      version = ">=2.0.0"
     }
   }
 }
 
-resource "aci_rest" "fvTenant" {
+resource "aci_rest_managed" "fvTenant" {
   dn         = "uni/tn-TF"
   class_name = "fvTenant"
 }
@@ -19,14 +19,14 @@ resource "aci_rest" "fvTenant" {
 module "main" {
   source = "../.."
 
-  tenant         = aci_rest.fvTenant.content.name
+  tenant         = aci_rest_managed.fvTenant.content.name
   name           = "SR1"
   description    = "My Description"
   community      = "no-export"
   community_mode = "replace"
 }
 
-data "aci_rest" "rtctrlAttrP" {
+data "aci_rest_managed" "rtctrlAttrP" {
   dn = module.main.dn
 
   depends_on = [module.main]
@@ -37,19 +37,19 @@ resource "test_assertions" "rtctrlAttrP" {
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest.rtctrlAttrP.content.name
+    got         = data.aci_rest_managed.rtctrlAttrP.content.name
     want        = module.main.name
   }
 
   equal "descr" {
     description = "descr"
-    got         = data.aci_rest.rtctrlAttrP.content.descr
+    got         = data.aci_rest_managed.rtctrlAttrP.content.descr
     want        = "My Description"
   }
 }
 
-data "aci_rest" "rtctrlSetComm" {
-  dn = "${data.aci_rest.rtctrlAttrP.id}/scomm"
+data "aci_rest_managed" "rtctrlSetComm" {
+  dn = "${data.aci_rest_managed.rtctrlAttrP.id}/scomm"
 
   depends_on = [module.main]
 }
@@ -59,19 +59,19 @@ resource "test_assertions" "rtctrlSetComm" {
 
   equal "community" {
     description = "community"
-    got         = data.aci_rest.rtctrlSetComm.content.community
+    got         = data.aci_rest_managed.rtctrlSetComm.content.community
     want        = "no-export"
   }
 
   equal "setCriteria" {
     description = "setCriteria"
-    got         = data.aci_rest.rtctrlSetComm.content.setCriteria
+    got         = data.aci_rest_managed.rtctrlSetComm.content.setCriteria
     want        = "replace"
   }
 
   equal "type" {
     description = "type"
-    got         = data.aci_rest.rtctrlSetComm.content.type
+    got         = data.aci_rest_managed.rtctrlSetComm.content.type
     want        = "community"
   }
 }
