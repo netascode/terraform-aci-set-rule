@@ -315,7 +315,7 @@ resource "test_assertions" "rtctrlSetASPath" {
 
 
 data "aci_rest_managed" "rtctrlSetASPathASN" {
-  dn         = "${data.aci_rest_managed.rtctrlAttrP.id}/asn-65001"
+  dn         = "${data.aci_rest_managed.rtctrlSetASPath.id}/asn-5"
   depends_on = [module.main]
 }
 
