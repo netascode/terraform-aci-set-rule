@@ -29,14 +29,14 @@ resource "aci_rest_managed" "rtctrlSetTag" {
 }
 
 resource "aci_rest_managed" "rtctrlSetDamp" {
-  count      = var.dampening != {} ? 1 : 0
+  count      = var.dampening != false ? 1 : 0
   dn         = "${aci_rest_managed.rtctrlAttrP.dn}/sdamp"
   class_name = "rtctrlSetDamp"
   content = {
-    "halfLife"        = var.dampening.half_life
-    "maxSuppressTime" = var.dampening.max_suppress_time
-    "reuse"           = var.dampening.reuse_limit
-    "suppress"        = var.dampening.suppress_limit
+    "halfLife"        = var.dampening_half_life
+    "maxSuppressTime" = var.dampening_max_suppress_time
+    "reuse"           = var.dampening_reuse_limit
+    "suppress"        = var.dampening_suppress_limit
     "type"            = "dampening-pol"
   }
 }
@@ -105,23 +105,23 @@ resource "aci_rest_managed" "rtctrlSetAddComm" {
 
 
 resource "aci_rest_managed" "rtctrlSetASPath" {
-  count      = var.set_as_path != {} ? 1 : 0
-  dn         = "${aci_rest_managed.rtctrlAttrP.dn}/saspath-${var.set_as_path.criteria}"
+  count      = var.set_as_path != false ? 1 : 0
+  dn         = "${aci_rest_managed.rtctrlAttrP.dn}/saspath-${var.set_as_path_criteria}"
   class_name = "rtctrlSetASPath"
   content = {
-    "criteria" = var.set_as_path.criteria
-    "lastnum"  = var.set_as_path.count
+    "criteria" = var.set_as_path_criteria
+    "lastnum"  = var.set_as_path_count
     "type"     = "as-path"
   }
 }
 
 resource "aci_rest_managed" "rtctrlSetASPathASN" {
-  count      = var.set_as_path.criteria == "prepend" ? 1 : 0
-  dn         = "${aci_rest_managed.rtctrlSetASPath[0].dn}/asn-${var.set_as_path.order}"
+  count      = var.set_as_path != false && var.set_as_path_criteria == "prepend" ? 1 : 0
+  dn         = "${aci_rest_managed.rtctrlSetASPath[0].dn}/asn-${var.set_as_path_order}"
   class_name = "rtctrlSetASPathASN"
   content = {
-    "asn"   = var.set_as_path.asn
-    "order" = var.set_as_path.order
+    "asn"   = var.set_as_path_asn
+    "order" = var.set_as_path_order
   }
 }
 
