@@ -332,7 +332,10 @@ resource "test_assertions" "rtctrlSetASPathASN" {
     got         = data.aci_rest_managed.rtctrlSetASPathASN.content.order
     want        = "5"
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin
 }
 
 data "aci_rest_managed" "rtctrlSetNhUnchanged" {
@@ -348,7 +351,10 @@ resource "test_assertions" "rtctrlSetNhUnchanged" {
     got         = data.aci_rest_managed.rtctrlSetNhUnchanged.content.type
     want        = "nh-unchanged"
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin
 }
 
 data "aci_rest_managed" "rtctrlSetRedistMultipath" {
@@ -364,5 +370,4 @@ resource "test_assertions" "rtctrlSetRedistMultipath" {
     got         = data.aci_rest_managed.rtctrlSetRedistMultipath.content.type
     want        = "redist-multipath"
   }
-
 }
