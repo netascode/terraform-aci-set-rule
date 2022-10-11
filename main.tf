@@ -116,7 +116,7 @@ resource "aci_rest_managed" "rtctrlSetASPath" {
 }
 
 resource "aci_rest_managed" "rtctrlSetASPathASN" {
-  count      = var.set_as_path != false && var.set_as_path_criteria == "prepend" ? 1 : 0
+  count      = var.set_as_path != false && var.set_as_path_criteria == "prepend" && var.set_as_path_asn == null ? 1 : 0
   dn         = "${aci_rest_managed.rtctrlSetASPath[0].dn}/asn-${var.set_as_path_order}"
   class_name = "rtctrlSetASPathASN"
   content = {
