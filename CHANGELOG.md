@@ -1,3 +1,16 @@
+## 0.2.0 (unreleased)
+
+- Add `dampening` attributes
+- Add `weight` attribute
+- Add `next_hop` attribute
+- Add `metric` attribute
+- Add `preference` attribute
+- Add `metric_type` attribute
+- Add `additional_communities` attribute
+- Add `set_as_path` attributes
+- Add `next_hop_propagation` attribute
+- Add `multipath` attribute
+
 ## 0.1.0
 
 - Migrate to devnet provider

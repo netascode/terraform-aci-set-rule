@@ -103,7 +103,6 @@ resource "aci_rest_managed" "rtctrlSetAddComm" {
   }
 }
 
-
 resource "aci_rest_managed" "rtctrlSetASPath" {
   count      = var.set_as_path != false ? 1 : 0
   dn         = "${aci_rest_managed.rtctrlAttrP.dn}/saspath-${var.set_as_path_criteria}"
@@ -124,7 +123,6 @@ resource "aci_rest_managed" "rtctrlSetASPathASN" {
     "order" = var.set_as_path_order
   }
 }
-
 
 resource "aci_rest_managed" "rtctrlSetNhUnchanged" {
   count      = var.next_hop_propagation == true ? 1 : 0

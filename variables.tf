@@ -48,7 +48,7 @@ variable "community_mode" {
 
 
 variable "tag" {
-  description = "Tag. Allowed values `tag`: 0-4294967295"
+  description = "Tag. Allowed values `tag`: 0-4294967295."
   type        = number
   default     = null
 
@@ -59,13 +59,13 @@ variable "tag" {
 }
 
 variable "dampening" {
-  description = "Dampening"
+  description = "Dampening."
   type        = bool
   default     = false
 }
 
 variable "dampening_half_life" {
-  description = "Dampening Half Life. Allowed values `dampening_half_life`: `1-60`"
+  description = "Dampening Half Life. Allowed values `dampening_half_life`: `1-60`."
   type        = number
   default     = 15
   validation {
@@ -75,7 +75,7 @@ variable "dampening_half_life" {
 }
 
 variable "dampening_max_suppress_time" {
-  description = "Dampening Max Supress. Allowed values `dampening_max_suppress_time`: `1-255`"
+  description = "Dampening Max Supress. Allowed values `dampening_max_suppress_time`: `1-255`."
   type        = number
   default     = 60
   validation {
@@ -86,7 +86,7 @@ variable "dampening_max_suppress_time" {
 
 
 variable "dampening_reuse_limit" {
-  description = "Dampening Re-use Limit. Allowed values `dampening_reuse_limit`: `1-2000`"
+  description = "Dampening Re-use Limit. Allowed values `dampening_reuse_limit`: `1-2000`."
   type        = number
   default     = 750
   validation {
@@ -96,7 +96,7 @@ variable "dampening_reuse_limit" {
 }
 
 variable "dampening_suppress_limit" {
-  description = "Dampening Supress Limit. Allowed values `dampening_suppress_limit`: `1-2000`"
+  description = "Dampening Supress Limit. Allowed values `dampening_suppress_limit`: `1-2000`."
   type        = number
   default     = 2000
   validation {
@@ -106,7 +106,7 @@ variable "dampening_suppress_limit" {
 }
 
 variable "weight" {
-  description = "Weight. Allowed values `weight`: 0-65535"
+  description = "Weight. Allowed values `weight`: 0-65535."
   type        = number
   default     = null
 
@@ -116,16 +116,15 @@ variable "weight" {
   }
 }
 
-
 variable "next_hop" {
-  description = "Next Hop"
+  description = "Next Hop IP."
   type        = string
   default     = ""
 
 }
 
 variable "preference" {
-  description = "Preference. Allowed values `preference`: 0-4294967295"
+  description = "Preference. Allowed values `preference`: 0-4294967295."
   type        = number
   default     = null
 
@@ -136,7 +135,7 @@ variable "preference" {
 }
 
 variable "metric" {
-  description = "Metric. Allowed values `preference`: 0-metric"
+  description = "Metric. Allowed values `metric`: 0-4294967295."
   type        = number
   default     = null
 
@@ -147,7 +146,7 @@ variable "metric" {
 }
 
 variable "metric_type" {
-  description = "Metric Type. Choice `metric_type`: `ospf-type1` or `ospf-type1`"
+  description = "Metric Type. Choice `metric_type`: `ospf-type1` or `ospf-type1`."
   type        = string
   default     = ""
 
@@ -159,7 +158,7 @@ variable "metric_type" {
 
 
 variable "additional_communities" {
-  description = "Additional communities"
+  description = "Additional communities."
   type = list(object({
     community   = string
     description = optional(string, "")
@@ -175,13 +174,13 @@ variable "additional_communities" {
 }
 
 variable "set_as_path" {
-  description = "AS-Path Set. Flag to set AS PAth"
+  description = "AS-Path Set. Flag to set AS Path."
   type        = bool
   default     = false
 }
 
 variable "set_as_path_criteria" {
-  description = "AS-PATH Criteria. Choices `set_as_path_criteria`: `prepend` or `prepend-last-as`"
+  description = "AS-PATH Criteria. Choices `set_as_path_criteria`: `prepend` or `prepend-last-as`."
   type        = string
   default     = "prepend"
 
@@ -192,7 +191,7 @@ variable "set_as_path_criteria" {
 }
 
 variable "set_as_path_count" {
-  description = "AS-PATH Count. Allowed values `set_as_path_count`: 0-10"
+  description = "AS-PATH Count. Allowed values `set_as_path_count`: 0-10."
   type        = number
   default     = 1
 
@@ -203,7 +202,7 @@ variable "set_as_path_count" {
 }
 
 variable "set_as_path_order" {
-  description = "AS-PATH Order. Allowed values `set_as_path_order`: 0-31"
+  description = "AS-PATH Order. Allowed values `set_as_path_order`: 0-31."
   type        = number
   default     = 0
 
@@ -214,7 +213,7 @@ variable "set_as_path_order" {
 }
 
 variable "set_as_path_asn" {
-  description = "AS-PATH ASN. Allowed values `set_as_path_asn`: 0-65535"
+  description = "AS-PATH ASN. Allowed values `set_as_path_asn`: 0-65535."
   type        = number
   default     = null
 
@@ -225,13 +224,13 @@ variable "set_as_path_asn" {
 }
 
 variable "next_hop_propagation" {
-  description = "Next Hop Propagation"
+  description = "Next Hop Propagation."
   type        = bool
   default     = false
 }
 
 variable "multipath" {
-  description = "Multipath"
+  description = "Multipath."
   type        = bool
   default     = false
 }
