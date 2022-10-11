@@ -1,3 +1,7 @@
+## 0.2.1 (unreleased)
+
+- Enhance validation of AS path prepending
+
 ## 0.2.0
 
 - Add `dampening` attributes
