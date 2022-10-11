@@ -351,10 +351,6 @@ resource "test_assertions" "rtctrlSetNhUnchanged" {
     got         = data.aci_rest_managed.rtctrlSetNhUnchanged.content.type
     want        = "nh-unchanged"
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
 }
 
 data "aci_rest_managed" "rtctrlSetRedistMultipath" {
