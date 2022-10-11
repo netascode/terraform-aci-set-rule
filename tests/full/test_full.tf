@@ -332,10 +332,6 @@ resource "test_assertions" "rtctrlSetASPathASN" {
     got         = data.aci_rest_managed.rtctrlSetASPathASN.content.order
     want        = "5"
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
 }
 
 data "aci_rest_managed" "rtctrlSetNhUnchanged" {
