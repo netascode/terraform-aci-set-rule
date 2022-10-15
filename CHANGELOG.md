@@ -1,3 +1,7 @@
+## 0.2.2 (unreleased)
+
+- Handle `null` weight value correctly
+
 ## 0.2.1
 
 - Enhance validation of AS path prepending

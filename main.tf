@@ -42,7 +42,7 @@ resource "aci_rest_managed" "rtctrlSetDamp" {
 }
 
 resource "aci_rest_managed" "rtctrlSetWeight" {
-  count      = var.weight != "" ? 1 : 0
+  count      = var.weight != null ? 1 : 0
   dn         = "${aci_rest_managed.rtctrlAttrP.dn}/sweight"
   class_name = "rtctrlSetWeight"
   content = {
